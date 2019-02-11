@@ -1,0 +1,7 @@
+.list ul li span a {
+    padding: 0 5px;
+}
+
+.active span {
+    padding: 0 5px;
+}
