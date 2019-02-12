@@ -2,11 +2,11 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const outputPath = path.join(__dirname, "dist")
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 module.exports = {
 	context: __dirname,
-	entry: './src/App.jsx',
+	entry: './src/app.jsx',
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
