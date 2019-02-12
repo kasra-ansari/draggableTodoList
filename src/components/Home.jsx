@@ -122,6 +122,27 @@ export default class Home extends Component {
         })
     }
 
+    handleRemoveComplete = e => {
+        e.preventDefault();
+        this.setState({
+            list: this.listSwap
+        }, () => {
+            let activeState = {}
+            Object.keys(this.state.list).length > 0 && Object.keys(this.state.list).map(item => {
+                if (!this.state.list[item].complete) {
+                    activeState[item] = this.state.list[item]
+                }
+            })
+
+            this.setState({
+                list: activeState
+            }, () => {
+                this.listSwap = this.state.list;
+                this.props.setDataAction({list: this.state.list, swap: this.listSwap})
+            })
+        })
+    }
+
     render() {
         const activeNumber = () => {
             let number = 0;
@@ -168,6 +189,9 @@ export default class Home extends Component {
                     <div className="active">
                         <span>{activeNumber()}</span>
                         number active
+                    </div>
+                    <div>
+                        <a href="" onClick={this.handleRemoveComplete}>remove complete task</a>
                     </div>
                 </div>
             </div>
